@@ -9,8 +9,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>course-info-repository</artifactId>
-
-
+    <artifactId>course-info-cli</artifactId>
 
 </project>
