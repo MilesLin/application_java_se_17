@@ -24,37 +24,38 @@ class CourseJdbcRepository implements CourseRepository{
     }
     @Override
     public void saveCourse(Course course) {
-        try (Connection connection = this.dataSource.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(INSERT_COURSE);
-            statement.setString(1, course.id());
-            statement.setString(2, course.name());
-            statement.setLong(3, course.length());
-            statement.setString(4, course.url());
-            statement.execute();
-        } catch (SQLException e){
-            throw new RepositoryException("Failed to save" + course, e);
-        }
+//        try (Connection connection = this.dataSource.getConnection()) {
+//            PreparedStatement statement = connection.prepareStatement(INSERT_COURSE);
+//            statement.setString(1, course.id());
+//            statement.setString(2, course.name());
+//            statement.setLong(3, course.length());
+//            statement.setString(4, course.url());
+//            statement.execute();
+//        } catch (SQLException e){
+//            throw new RepositoryException("Failed to save" + course, e);
+//        }
     }
 
     @Override
     public List<Course> getAllCourses() {
-        try (Connection connection = this.dataSource.getConnection()) {
-            Statement statment = connection.createStatement();
-            ResultSet resultSet = statment.executeQuery("SELECT * FROM COURSES");
-            List<Course> courses = new ArrayList<>();
-            while (resultSet.next()){
-                Course course = new Course(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getLong(3),
-                        resultSet.getString(4)
-                );
-                courses.add(course);
-            }
-            return Collections.unmodifiableList(courses);
-
-        } catch (SQLException e){
-            throw new RepositoryException("Failed to retrieve courses", e);
-        }
+        return List.of(new Course("1","miles", 100, "abc-url"));
+//        try (Connection connection = this.dataSource.getConnection()) {
+//            Statement statment = connection.createStatement();
+//            ResultSet resultSet = statment.executeQuery("SELECT * FROM COURSES");
+//            List<Course> courses = new ArrayList<>();
+//            while (resultSet.next()){
+//                Course course = new Course(
+//                        resultSet.getString(1),
+//                        resultSet.getString(2),
+//                        resultSet.getLong(3),
+//                        resultSet.getString(4)
+//                );
+//                courses.add(course);
+//            }
+//            return Collections.unmodifiableList(courses);
+//
+//        } catch (SQLException e){
+//            throw new RepositoryException("Failed to retrieve courses", e);
+//        }
     }
 }
