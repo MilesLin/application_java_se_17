@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 class CourseJdbcRepository implements CourseRepository{
     private static final String H2_DATABASE_URL =
@@ -38,7 +39,7 @@ class CourseJdbcRepository implements CourseRepository{
 
     @Override
     public List<Course> getAllCourses() {
-        return List.of(new Course("1","miles", 100, "abc-url"));
+        return List.of(new Course("1","miles", 100, "abc-url", Optional.of("Example notes")));
 //        try (Connection connection = this.dataSource.getConnection()) {
 //            Statement statment = connection.createStatement();
 //            ResultSet resultSet = statment.executeQuery("SELECT * FROM COURSES");
