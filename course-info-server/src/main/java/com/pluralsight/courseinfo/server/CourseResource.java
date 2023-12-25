@@ -3,10 +3,7 @@ package com.pluralsight.courseinfo.server;
 import com.pluralsight.courseinfo.doamin.Course;
 import com.pluralsight.courseinfo.respository.CourseRepository;
 import com.pluralsight.courseinfo.respository.RepositoryException;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.NotFoundException;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,5 +36,12 @@ public class CourseResource {
             throw new NotFoundException();
         }
 
+    }
+
+    @POST
+    @Path("/{id}/notes")
+    @Consumes(MediaType.TEXT_PLAIN)
+    public void addNotes(@PathParam("id") String id, String notes){
+        LOG.info("id: "+id + " notes: "+ notes);
     }
 }
