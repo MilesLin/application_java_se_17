@@ -44,8 +44,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <properties>
-        <slf4j.version>2.0.9</slf4j.version>
-        <jackson.version>2.16.1</jackson.version>
-    </properties>
 </project>
