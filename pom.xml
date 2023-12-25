@@ -7,6 +7,10 @@
     <groupId>com.pluralsight</groupId>
     <artifactId>course-info</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>course-info-repository</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
